@@ -1,12 +1,30 @@
 import { TestBed } from '@angular/core/testing';
+import { MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { enviroment } from 'src/enviroment/enviroment';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+  FirebaseTSApp.init(enviroment.firebaseConfig);
+  let auth = new FirebaseTSAuth();
+
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+      providers: [
+        { provide: MatBottomSheet, useValue: {} },
+        { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} }
+      ]
+    }).compileComponents();
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -14,16 +32,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Social-Media-Web-Application'`, () => {
+  it("Should return 1 if gotten user profile", async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Social-Media-Web-Application');
+    await auth.signInWith({
+      email: "visejuani@gmail.com",
+      password: "qweqwe"
+    });
+    var result = await app.getUserProfile();
+    expect(result).toEqual(1);
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Social-Media-Web-Application app is running!');
-  });
+
 });

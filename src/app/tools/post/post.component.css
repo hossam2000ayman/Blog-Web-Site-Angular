@@ -1,0 +1,54 @@
+.action-item {
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+.mat-card {
+  margin-bottom: 40px;
+  padding: 10px;
+  background: rgb(34,70,195);
+background: linear-gradient(to bottom, white,white, blue , darkblue);
+}
+
+
+.mat-card-header
+{
+  color: white;
+  padding: 10px;
+
+}
+
+.mat-card-header mat-card-title
+{
+font-size: 20px;
+font-family: cursive;
+          background: linear-gradient(
+              to right, darkblue,blue);
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+}
+
+.mat-card-header mat-card-subtitle{
+  margin-left: 10px;
+  font-size: 15px;
+  color: darkblue;
+}
+
+
+.mat-card-image{
+  padding: 10px;
+  color: white;
+}
+
+
+.mat-card-content
+{
+  padding: 10px;
+  color: white;
+}
+
+
+.mat-card-actions{
+  padding: 10px;
+  color: white;
+}

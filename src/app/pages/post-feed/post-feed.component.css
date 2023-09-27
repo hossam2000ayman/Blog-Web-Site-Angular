@@ -1,0 +1,24 @@
+#post-button {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+}
+
+#post-feed {
+    max-width: 500px;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.container{
+  background-image: url('https://media.tenor.com/aV0h3VAHWUAAAAAC/gradient.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+
+
+}
