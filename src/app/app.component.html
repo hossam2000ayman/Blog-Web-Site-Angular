@@ -1,4 +1,4 @@
-<div id="nav-bar">
+<div id="nav-bar" [ngClass]="{'nav-bar-log-in':onLoginClick(),'nav-bar-log-out':onLogoutClick()}">
     <div id="nav-bar-content">
         <div id="nav-bar-left">
             <div style="font-size: 1.5em;" class="nav-bar-items gradient-text-logo">BLOG-WEB-APP</div>
